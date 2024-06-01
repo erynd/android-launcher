@@ -152,7 +152,7 @@ object EryndUtils {
 
             logcatProcess.inputStream.bufferedReader().readText()
         } catch (e: Exception) {
-            Log.e("Geode", "Failed to get logcat crash buffer", e)
+            Log.e("Erynd", "Failed to get logcat crash buffer", e)
             ""
         }
     }
@@ -161,7 +161,7 @@ object EryndUtils {
     fun writeClipboard(text: String) {
         activity.get()?.run {
             val manager = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-            val clip = ClipData.newPlainText("Geode", text)
+            val clip = ClipData.newPlainText("Erynd", text)
             manager.setPrimaryClip(clip)
         }
     }

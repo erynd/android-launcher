@@ -44,7 +44,7 @@ object LaunchUtils {
     }
 
     /**
-     * Returns the directory that Geode/the game should base itself off of.
+     * Returns the directory that Erynd/the game should base itself off of.
      */
     fun getBaseDirectory(context: Context): File {
         // deprecated, but seems to be the best choice of directory (i forced mat to test it)

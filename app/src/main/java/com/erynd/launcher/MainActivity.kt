@@ -633,8 +633,8 @@ fun DownloadRecommendation(needsUniversal: Boolean, modifier: Modifier = Modifie
     }
 
     val downloadBase = "https://github.com/erynd/android-launcher/releases/download/$version"
-    val legacyDownloadUrl = "$downloadBase/geode-launcher-v$version-android32.apk"
-    val universalDownloadUrl = "$downloadBase/geode-launcher-v$version.apk"
+    val legacyDownloadUrl = "$downloadBase/erynd-launcher-v$version-android32.apk"
+    val universalDownloadUrl = "$downloadBase/erynd-launcher-v$version.apk"
 
     val downloadUrl = if (needsUniversal)
         universalDownloadUrl else legacyDownloadUrl

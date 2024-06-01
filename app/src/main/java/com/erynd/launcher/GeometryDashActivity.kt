@@ -289,7 +289,7 @@ class GeometryDashActivity : AppCompatActivity(), Cocos2dxHelper.Cocos2dxHelperL
 
     @SuppressLint("UnsafeDynamicallyLoadedCode")
     private fun loadGeodeLibrary() {
-        // Load Geode if exists
+        // Load Erynd if exists
         // bundling the object with the application allows for nicer backtraces
         try {
             // put libgeode.so in jniLibs/armeabi-v7a to get this
@@ -324,7 +324,7 @@ class GeometryDashActivity : AppCompatActivity(), Cocos2dxHelper.Cocos2dxHelperL
                 )
 
                 if (copiedGeodePath.exists()) {
-                    println("Loading Geode from ${externalGeodePath.name}")
+                    println("Loading Erynd from ${externalGeodePath.name}")
                     System.load(copiedGeodePath.path)
                     return
                 }
@@ -535,7 +535,7 @@ class GeometryDashActivity : AppCompatActivity(), Cocos2dxHelper.Cocos2dxHelperL
     }
 
     /**
-     * Copies a mod from the launcher's assets to the Geode mods directory.
+     * Copies a mod from the launcher's assets to the Erynd mods directory.
      * This method is not recommended for casual use, the new mod will not be automatically removed.
      */
     private fun loadInternalMods() {

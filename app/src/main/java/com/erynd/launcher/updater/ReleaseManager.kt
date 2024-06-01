@@ -23,7 +23,7 @@ import java.io.File
 import java.io.InterruptedIOException
 
 /**
- * Singleton to manage Geode updates, from update checking to downloading.
+ * Singleton to manage Erynd updates, from update checking to downloading.
  */
 class ReleaseManager private constructor(
     private val applicationContext: Context,
@@ -86,7 +86,7 @@ class ReleaseManager private constructor(
 
         // ignore cancellation, it's good actually
         if (e !is CancellationException && e !is InterruptedIOException) {
-            Log.w("Geode", "Release download has failed:")
+            Log.w("Erynd", "Release download has failed:")
             e.printStackTrace()
         }
     }
