@@ -33,7 +33,7 @@ class ReleaseRepository(private val httpClient: OkHttpClient) {
     }
 
     suspend fun getLatestGeodeRelease(isNightly: Boolean = false): Release? {
-        val geodeBaseUrl = "$GITHUB_API_BASE/repos/erynd/geode/releases"
+        val geodeBaseUrl = "$GITHUB_API_BASE/repos/erynd/erynd/releases"
         val releasePath = if (isNightly) "$geodeBaseUrl/tags/nightly"
             else "$geodeBaseUrl/latest"
 
