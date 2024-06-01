@@ -23,9 +23,9 @@ import androidx.documentfile.provider.DocumentFile
 import com.erynd.launcher.BuildConfig
 import com.erynd.launcher.R
 import com.erynd.launcher.UserDirectoryProvider
-import com.erynd.launcher.activityresult.GeodeOpenFileActivityResult
-import com.erynd.launcher.activityresult.GeodeOpenFilesActivityResult
-import com.erynd.launcher.activityresult.GeodeSaveFileActivityResult
+import com.erynd.launcher.activityresult.EryndOpenFileActivityResult
+import com.erynd.launcher.activityresult.EryndOpenFilesActivityResult
+import com.erynd.launcher.activityresult.EryndSaveFileActivityResult
 import java.io.File
 import java.lang.ref.WeakReference
 import kotlin.system.exitProcess
@@ -34,10 +34,10 @@ import kotlin.system.exitProcess
 @Suppress("unused", "KotlinJniMissingFunction")
 object EryndUtils {
     private lateinit var activity: WeakReference<AppCompatActivity>
-    private lateinit var openFileResultLauncher: ActivityResultLauncher<GeodeOpenFileActivityResult.OpenFileParams>
+    private lateinit var openFileResultLauncher: ActivityResultLauncher<EryndOpenFileActivityResult.OpenFileParams>
     private lateinit var openDirectoryResultLauncher: ActivityResultLauncher<Uri?>
-    private lateinit var openFilesResultLauncher: ActivityResultLauncher<GeodeOpenFilesActivityResult.OpenFileParams>
-    private lateinit var saveFileResultLauncher: ActivityResultLauncher<GeodeSaveFileActivityResult.SaveFileParams>
+    private lateinit var openFilesResultLauncher: ActivityResultLauncher<EryndOpenFilesActivityResult.OpenFileParams>
+    private lateinit var saveFileResultLauncher: ActivityResultLauncher<EryndSaveFileActivityResult.SaveFileParams>
     private lateinit var requestPermissionLauncher: ActivityResultLauncher<String>
     private lateinit var internalRequestPermissionsLauncher: ActivityResultLauncher<Array<String>>
     private lateinit var internalRequestAllFilesLauncher: ActivityResultLauncher<Intent>
@@ -47,7 +47,7 @@ object EryndUtils {
 
     fun setContext(activity: AppCompatActivity) {
         this.activity = WeakReference(activity)
-        openFileResultLauncher = activity.registerForActivityResult(GeodeOpenFileActivityResult()) { uri ->
+        openFileResultLauncher = activity.registerForActivityResult(EryndOpenFileActivityResult()) { uri ->
             if (uri != null) {
                 val path = FileUtils.getRealPathFromURI(activity, uri)
                 if (path != null) {
@@ -80,7 +80,7 @@ object EryndUtils {
             }
             failedCallback()
         }
-        openFilesResultLauncher = activity.registerForActivityResult(GeodeOpenFilesActivityResult()) { result ->
+        openFilesResultLauncher = activity.registerForActivityResult(EryndOpenFilesActivityResult()) { result ->
             if (result.isEmpty()) {
                 Toast.makeText(activity, R.string.no_file_selected, Toast.LENGTH_SHORT)
                     .show()
@@ -98,7 +98,7 @@ object EryndUtils {
             selectFilesCallback(paths)
             return@registerForActivityResult
         }
-        saveFileResultLauncher = activity.registerForActivityResult(GeodeSaveFileActivityResult()) { uri ->
+        saveFileResultLauncher = activity.registerForActivityResult(EryndSaveFileActivityResult()) { uri ->
             if (uri != null) {
                 val path = FileUtils.getRealPathFromURI(activity, uri)
                 if (path != null) {
@@ -289,7 +289,7 @@ object EryndUtils {
         return try {
             checkForFilePermissions(
                 onSuccess = {
-                    openFileResultLauncher.launch(GeodeOpenFileActivityResult.OpenFileParams(arrayOf("*/*"), uri))
+                    openFileResultLauncher.launch(EryndOpenFileActivityResult.OpenFileParams(arrayOf("*/*"), uri))
                 },
                 onFailure = { failedCallback() }
             )
@@ -310,7 +310,7 @@ object EryndUtils {
         return try {
             checkForFilePermissions(
                 onSuccess = {
-                    openFilesResultLauncher.launch(GeodeOpenFilesActivityResult.OpenFileParams(arrayOf("*/*"), uri))
+                    openFilesResultLauncher.launch(EryndOpenFilesActivityResult.OpenFileParams(arrayOf("*/*"), uri))
                 },
                 onFailure = { failedCallback() }
             )
@@ -350,7 +350,7 @@ object EryndUtils {
         return try {
             checkForFilePermissions(
                 onSuccess = {
-                    saveFileResultLauncher.launch(GeodeSaveFileActivityResult.SaveFileParams(null, initialPath))
+                    saveFileResultLauncher.launch(EryndSaveFileActivityResult.SaveFileParams(null, initialPath))
                 },
                 onFailure = { failedCallback() }
             )

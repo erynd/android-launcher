@@ -8,7 +8,7 @@ import android.os.Build
 import android.provider.DocumentsContract
 import androidx.activity.result.contract.ActivityResultContract
 
-open class GeodeOpenFilesActivityResult : ActivityResultContract<GeodeOpenFilesActivityResult.OpenFileParams, List<@JvmSuppressWildcards Uri>>() {
+open class EryndOpenFilesActivityResult : ActivityResultContract<EryndOpenFilesActivityResult.OpenFileParams, List<@JvmSuppressWildcards Uri>>() {
     class OpenFileParams(val extraMimes: Array<String>, val defaultPath: Uri?) {}
     override fun createIntent(context: Context, input: OpenFileParams): Intent {
         val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)

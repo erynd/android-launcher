@@ -950,7 +950,7 @@ fun MainScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Image(
-                painter = painterResource(id = R.drawable.geode_logo),
+                painter = painterResource(id = R.drawable.erynd_logo),
                 contentDescription = context.getString(R.string.launcher_logo_alt),
                 modifier = Modifier.size(136.dp, 136.dp)
             )
@@ -986,7 +986,7 @@ fun MainScreen(
                 }
                 gdInstalled -> {
                     Text(
-                        context.getString(R.string.geode_download_title),
+                        context.getString(R.string.erynd_download_title),
                         modifier = Modifier.padding(12.dp)
                     )
 

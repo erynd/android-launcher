@@ -61,7 +61,7 @@ class UserDirectoryProvider : DocumentsProvider() {
                         DocumentsContract.Root.FLAG_SUPPORTS_SEARCH
             )
             add(DocumentsContract.Root.COLUMN_TITLE, context.getString(R.string.app_name))
-            add(DocumentsContract.Root.COLUMN_ICON, R.drawable.geode_logo)
+            add(DocumentsContract.Root.COLUMN_ICON, R.drawable.erynd_logo)
         }
 
         return result
@@ -124,7 +124,7 @@ class UserDirectoryProvider : DocumentsProvider() {
             add(DocumentsContract.Document.COLUMN_FLAGS, flags)
             add(DocumentsContract.Document.COLUMN_SIZE, file.length())
             if (file == rootDir) {
-                add(DocumentsContract.Document.COLUMN_ICON, R.drawable.geode_logo)
+                add(DocumentsContract.Document.COLUMN_ICON, R.drawable.erynd_logo)
             }
         }
     }

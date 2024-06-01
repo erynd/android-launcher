@@ -10,7 +10,7 @@ import androidx.activity.result.contract.ActivityResultContract
 import androidx.documentfile.provider.DocumentFile
 import java.io.File
 
-open class GeodeSaveFileActivityResult : ActivityResultContract<GeodeSaveFileActivityResult.SaveFileParams, Uri?>() {
+open class EryndSaveFileActivityResult : ActivityResultContract<EryndSaveFileActivityResult.SaveFileParams, Uri?>() {
     class SaveFileParams(val mimeType: String?, val initialPath: File?)
     override fun createIntent(context: Context, input: SaveFileParams): Intent {
         val intent = Intent(Intent.ACTION_CREATE_DOCUMENT)
