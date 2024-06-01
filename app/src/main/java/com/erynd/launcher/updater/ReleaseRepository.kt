@@ -25,7 +25,7 @@ class ReleaseRepository(private val httpClient: OkHttpClient) {
     }
 
     suspend fun getLatestLauncherRelease(): Release? {
-        val releasePath = "$GITHUB_API_BASE/repos/geode-sdk/android-launcher/releases/latest"
+        val releasePath = "$GITHUB_API_BASE/repos/erynd/android-launcher/releases/latest"
 
         val url = URL(releasePath)
 
@@ -33,7 +33,7 @@ class ReleaseRepository(private val httpClient: OkHttpClient) {
     }
 
     suspend fun getLatestGeodeRelease(isNightly: Boolean = false): Release? {
-        val geodeBaseUrl = "$GITHUB_API_BASE/repos/geode-sdk/geode/releases"
+        val geodeBaseUrl = "$GITHUB_API_BASE/repos/erynd/geode/releases"
         val releasePath = if (isNightly) "$geodeBaseUrl/tags/nightly"
             else "$geodeBaseUrl/latest"
 

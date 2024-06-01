@@ -3,7 +3,7 @@ package com.erynd.launcher.utils
 import android.annotation.SuppressLint
 
 object Constants {
-    const val PACKAGE_NAME = "com.robtopx.geometryjump"
+    const val PACKAGE_NAME = "com.geodashprivateserver"
 
     const val COCOS_LIB_NAME = "cocos2dcpp"
     const val FMOD_LIB_NAME = "fmod"
