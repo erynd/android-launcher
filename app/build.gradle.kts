@@ -11,11 +11,11 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.geode.launcher"
+        applicationId = "com.erynd.launcher"
         minSdk = 23
         targetSdk = 34
         versionCode = 16
-        versionName = "1.3.4"
+        versionName = "1.0.0-beta.1"
 
         vectorDrawables {
             useSupportLibrary = true
@@ -79,7 +79,7 @@ android {
             path = file("src/main/cpp/CMakeLists.txt")
         }
     }
-    namespace = "com.geode.launcher"
+    namespace = "com.erynd.launcher"
     ndkVersion = "26.3.11579264"
 }
 

@@ -13,7 +13,7 @@ import android.view.Surface
 import android.view.inputmethod.InputMethodManager
 import androidx.annotation.RequiresApi
 import com.customRobTop.BaseRobTopActivity
-import com.geode.launcher.utils.GeodeUtils
+import com.erynd.launcher.utils.EryndUtils
 
 private const val HANDLER_OPEN_IME_KEYBOARD = 2
 private const val HANDLER_CLOSE_IME_KEYBOARD = 3
@@ -154,7 +154,7 @@ class Cocos2dxGLSurfaceView(context: Context) : GLSurfaceView(context) {
                 val f = ys[0]
                 queueEvent {
                     if (sendTimestampEvents)
-                        GeodeUtils.setNextInputTimestamp(timestamp)
+                        EryndUtils.setNextInputTimestamp(timestamp)
 
                     cocos2dxRenderer.handleActionDown(idDown, xDown, f)
                 }
@@ -166,7 +166,7 @@ class Cocos2dxGLSurfaceView(context: Context) : GLSurfaceView(context) {
                 val f3 = ys[0]
                 queueEvent {
                     if (sendTimestampEvents)
-                        GeodeUtils.setNextInputTimestamp(timestamp)
+                        EryndUtils.setNextInputTimestamp(timestamp)
 
                     cocos2dxRenderer.handleActionUp(idUp, f2, f3)
                 }
@@ -175,7 +175,7 @@ class Cocos2dxGLSurfaceView(context: Context) : GLSurfaceView(context) {
             MotionEvent.ACTION_MOVE -> {
                 queueEvent {
                     if (sendTimestampEvents)
-                        GeodeUtils.setNextInputTimestamp(timestamp)
+                        EryndUtils.setNextInputTimestamp(timestamp)
 
                     cocos2dxRenderer.handleActionMove(ids, xs, ys)
                 }
@@ -184,7 +184,7 @@ class Cocos2dxGLSurfaceView(context: Context) : GLSurfaceView(context) {
             MotionEvent.ACTION_CANCEL -> {
                 queueEvent {
                     if (sendTimestampEvents)
-                        GeodeUtils.setNextInputTimestamp(timestamp)
+                        EryndUtils.setNextInputTimestamp(timestamp)
 
                     cocos2dxRenderer.handleActionCancel(ids, xs, ys)
                 }
@@ -197,7 +197,7 @@ class Cocos2dxGLSurfaceView(context: Context) : GLSurfaceView(context) {
                 val y = motionEvent.getY(indexPointerDown)
                 queueEvent {
                     if (sendTimestampEvents)
-                        GeodeUtils.setNextInputTimestamp(timestamp)
+                        EryndUtils.setNextInputTimestamp(timestamp)
 
                     cocos2dxRenderer.handleActionDown(idPointerDown, xPointerDown, y)
                 }
@@ -210,7 +210,7 @@ class Cocos2dxGLSurfaceView(context: Context) : GLSurfaceView(context) {
                 val y2 = motionEvent.getY(indexPointUp)
                 queueEvent {
                     if (sendTimestampEvents)
-                        GeodeUtils.setNextInputTimestamp(timestamp)
+                        EryndUtils.setNextInputTimestamp(timestamp)
 
                     cocos2dxRenderer.handleActionUp(idPointerUp, xPointerUp, y2)
                 }
@@ -261,9 +261,9 @@ class Cocos2dxGLSurfaceView(context: Context) : GLSurfaceView(context) {
 
                 queueEvent {
                     if (sendTimestampEvents)
-                        GeodeUtils.setNextInputTimestamp(event.eventTime * MS_TO_NS)
+                        EryndUtils.setNextInputTimestamp(event.eventTime * MS_TO_NS)
 
-                    GeodeUtils.nativeKeyDown(keyCode, event.modifiers, event.repeatCount != 0)
+                    EryndUtils.nativeKeyDown(keyCode, event.modifiers, event.repeatCount != 0)
                 }
                 true
             }
@@ -286,9 +286,9 @@ class Cocos2dxGLSurfaceView(context: Context) : GLSurfaceView(context) {
 
                 queueEvent {
                     if (sendTimestampEvents)
-                        GeodeUtils.setNextInputTimestamp(event.eventTime * MS_TO_NS)
+                        EryndUtils.setNextInputTimestamp(event.eventTime * MS_TO_NS)
 
-                    GeodeUtils.nativeKeyUp(keyCode, event.modifiers)
+                    EryndUtils.nativeKeyUp(keyCode, event.modifiers)
                 }
 
                 true
@@ -309,9 +309,9 @@ class Cocos2dxGLSurfaceView(context: Context) : GLSurfaceView(context) {
 
             queueEvent {
                 if (sendTimestampEvents)
-                    GeodeUtils.setNextInputTimestamp(timestamp)
+                    EryndUtils.setNextInputTimestamp(timestamp)
 
-                GeodeUtils.nativeActionScroll(scrollX, scrollY)
+                EryndUtils.nativeActionScroll(scrollX, scrollY)
             }
 
             return true

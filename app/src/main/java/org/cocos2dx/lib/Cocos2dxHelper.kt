@@ -4,7 +4,7 @@ import android.content.Context
 import android.content.pm.ApplicationInfo
 import android.os.Process
 import com.customRobTop.BaseRobTopActivity
-import com.geode.launcher.utils.LaunchUtils
+import com.erynd.launcher.utils.LaunchUtils
 
 
 @Suppress("unused", "KotlinJniMissingFunction")
