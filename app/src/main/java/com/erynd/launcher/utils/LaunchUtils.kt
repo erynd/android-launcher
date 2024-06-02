@@ -16,31 +16,31 @@ object LaunchUtils {
 
     val geodeFilename: String = "Geode.$platformName.so"
 
-    fun getInstalledGeodePath(context: Context): File? {
+    fun getInstalledEryndPath(context: Context): File? {
         val geodeName = geodeFilename
 
-        val internalGeodePath = File(context.filesDir, "launcher/$geodeName")
-        if (internalGeodePath.exists()) {
-            return internalGeodePath
+        val internalEryndPath = File(context.filesDir, "launcher/$geodeName")
+        if (internalEryndPath.exists()) {
+            return internalEryndPath
         }
 
         val externalGeodeDir = getBaseDirectory(context)
 
-        val updateGeodePath = File(externalGeodeDir, "launcher/$geodeName")
-        if (updateGeodePath.exists()) {
-            return updateGeodePath
+        val updateEryndPath = File(externalGeodeDir, "launcher/$geodeName")
+        if (updateEryndPath.exists()) {
+            return updateEryndPath
         }
 
-        val externalGeodePath = File(externalGeodeDir, geodeName)
-        if (externalGeodePath.exists()) {
-            return externalGeodePath
+        val externalEryndPath = File(externalGeodeDir, geodeName)
+        if (externalEryndPath.exists()) {
+            return externalEryndPath
         }
 
         return null
     }
 
     fun isEryndInstalled(context: Context): Boolean {
-        return getInstalledGeodePath(context) != null
+        return getInstalledEryndPath(context) != null
     }
 
     /**

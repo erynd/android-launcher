@@ -307,7 +307,7 @@ class GeometryDashActivity : AppCompatActivity(), Cocos2dxHelper.Cocos2dxHelperL
             // you know zmx i have 0 clue what this does so im
             // just gonna like copy the binary from external
             // also i get 20 million permission denied errors
-            val externalGeodePath = LaunchUtils.getInstalledGeodePath(this)!!
+            val externalEryndPath = LaunchUtils.getInstalledEryndPath(this)!!
 
             val copiedPath = File(filesDir.path, "copied")
             if (copiedPath.exists()) {
@@ -315,17 +315,17 @@ class GeometryDashActivity : AppCompatActivity(), Cocos2dxHelper.Cocos2dxHelperL
             }
             copiedPath.mkdir()
 
-            val copiedGeodePath = File(copiedPath.path, "Geode.so")
+            val copiedEryndPath = File(copiedPath.path, "Geode.so")
 
-            if (externalGeodePath.exists()) {
+            if (externalEryndPath.exists()) {
                 DownloadUtils.copyFile(
-                    FileInputStream(externalGeodePath),
-                    FileOutputStream(copiedGeodePath)
+                    FileInputStream(externalEryndPath),
+                    FileOutputStream(copiedEryndPath)
                 )
 
-                if (copiedGeodePath.exists()) {
-                    println("Loading Geode from ${externalGeodePath.name}")
-                    System.load(copiedGeodePath.path)
+                if (copiedEryndPath.exists()) {
+                    println("Loading Geode from ${externalEryndPath.name}")
+                    System.load(copiedEryndPath.path)
                     return
                 }
             }
