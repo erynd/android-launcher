@@ -315,7 +315,7 @@ class GeometryDashActivity : AppCompatActivity(), Cocos2dxHelper.Cocos2dxHelperL
             }
             copiedPath.mkdir()
 
-            val copiedEryndPath = File(copiedPath.path, "Erynd.so")
+            val copiedEryndPath = File(copiedPath.path, "Geode.so")
 
             if (externalEryndPath.exists()) {
                 DownloadUtils.copyFile(
