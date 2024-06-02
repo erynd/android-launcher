@@ -104,11 +104,11 @@ class ReleaseManager private constructor(
         val sharedPreferences = PreferenceUtils.get(applicationContext)
         val useNightly = sharedPreferences.getBoolean(PreferenceUtils.Key.RELEASE_CHANNEL)
 
-        return releaseRepository.getLatestGeodeRelease(useNightly)
+        return releaseRepository.getLatestEryndRelease(useNightly)
     }
 
     private suspend fun performUpdate(release: Release) {
-        val releaseAsset = release.getGeodeDownload()
+        val releaseAsset = release.getEryndDownload()
         if (releaseAsset == null) {
             val noAssetException = Exception("missing Android download")
             _uiState.value = ReleaseManagerState.Failure(noAssetException)
@@ -127,7 +127,7 @@ class ReleaseManager private constructor(
                 _uiState.value = ReleaseManagerState.InDownload(progress, outOf)
             }
 
-            val geodeFile = getGeodeOutputPath()
+            val geodeFile = getEryndOutputPath()
 
             // work around a permission issue from adb push
             if (geodeFile.exists()) {
@@ -152,7 +152,7 @@ class ReleaseManager private constructor(
     }
 
     private fun fileWasExternallyModified(): Boolean {
-        val geodeFile = getGeodeOutputPath()
+        val geodeFile = getEryndOutputPath()
         if (!geodeFile.exists()) {
             return false
         }
@@ -209,7 +209,7 @@ class ReleaseManager private constructor(
         val latestVersion = release.getDescriptor()
 
         // make sure geode is still here. just in case
-        val geodeFile = getGeodeOutputPath()
+        val geodeFile = getEryndOutputPath()
 
         // check if an update is needed
         if (latestVersion == currentVersion && geodeFile.exists()) {
@@ -240,7 +240,7 @@ class ReleaseManager private constructor(
         )
 
         // store hash as modified time is unreliable (don't know why)
-        val outputFile = getGeodeOutputPath()
+        val outputFile = getEryndOutputPath()
         val fileHash = computeFileHash(outputFile)
 
         sharedPreferences.setString(PreferenceUtils.Key.CURRENT_RELEASE_MODIFIED, fileHash)
@@ -249,7 +249,7 @@ class ReleaseManager private constructor(
     private fun computeFileHash(file: File): String =
         file.source().buffer().readByteString().md5().hex()
 
-    private fun getGeodeOutputPath(): File {
+    private fun getEryndOutputPath(): File {
         val geodeName = LaunchUtils.geodeFilename
         val geodeDirectory = LaunchUtils.getBaseDirectory(applicationContext)
 

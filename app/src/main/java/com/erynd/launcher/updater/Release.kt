@@ -43,7 +43,7 @@ class Release(
         return createdAt.epochSeconds
     }
 
-    fun getGeodeDownload(): Asset? {
+    fun getEryndDownload(): Asset? {
         // try to find an asset that matches the architecture first
         val platform = LaunchUtils.platformName
 

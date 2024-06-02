@@ -87,7 +87,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         val gdInstalled = GamePackageUtils.isGameInstalled(packageManager)
-        val geodeInstalled = LaunchUtils.isGeodeInstalled(this)
+        val geodeInstalled = LaunchUtils.isEryndInstalled(this)
 
         val returnMessage = intent.extras?.getString(LaunchUtils.LAUNCHER_KEY_RETURN_MESSAGE)
         val returnExtendedMessage = intent.extras?.getString(LaunchUtils.LAUNCHER_KEY_RETURN_EXTENDED_MESSAGE)

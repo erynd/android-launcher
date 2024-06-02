@@ -388,7 +388,7 @@ object EryndUtils {
         return ""
     }
 
-    fun isGeodeUri(uri: Uri): Boolean {
+    fun isEryndUri(uri: Uri): Boolean {
         return "com.erynd.launcher.user" == uri.authority
     }
 
