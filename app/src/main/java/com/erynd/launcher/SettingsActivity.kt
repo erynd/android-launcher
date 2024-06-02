@@ -43,7 +43,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.erynd.launcher.updater.ReleaseViewModel
-import com.erynd.launcher.ui.theme.EryndLauncherTheme
+import com.erynd.launcher.ui.theme.GeodeLauncherTheme
 import com.erynd.launcher.ui.theme.LocalTheme
 import com.erynd.launcher.ui.theme.Theme
 import com.erynd.launcher.ui.theme.Typography
@@ -64,7 +64,7 @@ class SettingsActivity : ComponentActivity() {
             val backgroundOption by PreferenceUtils.useBooleanPreference(PreferenceUtils.Key.BLACK_BACKGROUND)
 
             CompositionLocalProvider(LocalTheme provides theme) {
-                EryndLauncherTheme(theme = theme, blackBackground = backgroundOption) {
+                GeodeLauncherTheme(theme = theme, blackBackground = backgroundOption) {
                     Surface(
                         modifier = Modifier.fillMaxSize(),
                         color = MaterialTheme.colorScheme.background
@@ -400,7 +400,7 @@ fun SettingsScreen(
 @Preview(showSystemUi = true)
 @Composable
 fun DefaultPreview() {
-    EryndLauncherTheme {
+    GeodeLauncherTheme {
         SettingsScreen(null)
     }
 }

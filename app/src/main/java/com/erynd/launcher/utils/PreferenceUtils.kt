@@ -20,7 +20,7 @@ import com.erynd.launcher.BuildConfig
  */
 class PreferenceUtils(private val sharedPreferences: SharedPreferences) {
     companion object {
-        private const val FILE_KEY = "EryndLauncherPreferencesFileKey"
+        private const val FILE_KEY = "GeodeLauncherPreferencesFileKey"
 
         @Composable
         fun useBooleanPreference(preferenceKey: Key, lifecycleOwner: LifecycleOwner = LocalLifecycleOwner.current): MutableState<Boolean> {

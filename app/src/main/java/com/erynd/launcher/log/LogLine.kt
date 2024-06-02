@@ -198,7 +198,7 @@ data class LogLine(
             time = Clock.System.now(),
             logId = 0,
             priority = LogPriority.FATAL,
-            tag = "EryndLauncher",
+            tag = "GeodeLauncher",
             message = "Failed to parse log entry with ${exception.stackTraceToString()}"
         )
     }
