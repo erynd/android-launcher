@@ -56,7 +56,7 @@ enum class Theme {
 val LocalTheme = compositionLocalOf { Theme.LIGHT }
 
 @Composable
-fun GeodeLauncherTheme(
+fun EryndLauncherTheme(
     theme: Theme = Theme.fromInt(0),
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,

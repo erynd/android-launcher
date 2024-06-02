@@ -37,7 +37,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
-import com.erynd.launcher.ui.theme.GeodeLauncherTheme
+import com.erynd.launcher.ui.theme.EryndLauncherTheme
 import com.erynd.launcher.ui.theme.Typography
 import com.erynd.launcher.utils.PreferenceUtils
 
@@ -350,7 +350,7 @@ fun OptionsCard(modifier: Modifier = Modifier, title: @Composable () -> Unit, co
 @Preview(showBackground = true)
 @Composable
 fun OptionsCardPreview() {
-    GeodeLauncherTheme {
+    EryndLauncherTheme {
         OptionsGroup(title = "Preview Group") {
             SettingsCard(
                 title = "Load files from /test",

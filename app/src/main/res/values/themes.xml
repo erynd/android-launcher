@@ -9,5 +9,5 @@
         <item name="android:windowBackground">@android:drawable/screen_background_dark</item>
     </style>
 
-    <style name="Theme.GeodeLauncher" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.EryndLauncher" parent="android:Theme.Material.Light.NoActionBar" />
 </resources>
