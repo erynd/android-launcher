@@ -57,7 +57,7 @@ object GamePackageUtils {
 
         val metadata =
             "Geometry Dash metadata:\nSplit sources: $isSplit\nExtracted libraries: $isExtracted\nLauncher architecture: $abi"
-        Log.i("GeodeLauncher", metadata)
+        Log.i("EryndLauncher", metadata)
 
         // easiest check! these messages are hardcoded in bionic/linker/linker_phdr.cpp
         if (loadException.message?.contains("32-bit instead of 64-bit") == true) {

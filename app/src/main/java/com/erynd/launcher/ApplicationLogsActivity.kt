@@ -69,7 +69,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.erynd.launcher.log.LogLine
 import com.erynd.launcher.log.LogPriority
 import com.erynd.launcher.log.LogViewModel
-import com.erynd.launcher.ui.theme.GeodeLauncherTheme
+import com.erynd.launcher.ui.theme.EryndLauncherTheme
 import com.erynd.launcher.ui.theme.LocalTheme
 import com.erynd.launcher.ui.theme.Theme
 import com.erynd.launcher.ui.theme.Typography
@@ -88,7 +88,7 @@ class ApplicationLogsActivity : ComponentActivity() {
             val backgroundOption by PreferenceUtils.useBooleanPreference(PreferenceUtils.Key.BLACK_BACKGROUND)
 
             CompositionLocalProvider(LocalTheme provides theme) {
-                GeodeLauncherTheme(theme = theme, blackBackground = backgroundOption) {
+                EryndLauncherTheme(theme = theme, blackBackground = backgroundOption) {
                     Surface(
                         modifier = Modifier.fillMaxSize(),
                         color = MaterialTheme.colorScheme.background
@@ -392,7 +392,7 @@ fun ApplicationLogsScreen(
 @Preview(showSystemUi = true)
 @Composable
 fun LogsPreview() {
-    GeodeLauncherTheme {
+    EryndLauncherTheme {
         ApplicationLogsScreen(null)
     }
 }

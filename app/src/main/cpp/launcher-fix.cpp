@@ -97,7 +97,7 @@ bool hook_function(void* addr, auto* hook, auto** orig) {
 
     auto handler_result = createHandler(addr, metadata);
     if (!handler_result) {
-        __android_log_print(ANDROID_LOG_WARN, "GeodeLauncher-Fix",
+        __android_log_print(ANDROID_LOG_WARN, "EryndLauncher-Fix",
             "failed to create handler: %s\n", handler_result.unwrapErr().c_str());
         return false;
     }
@@ -115,7 +115,7 @@ bool hook_function(void* addr, auto* hook, auto** orig) {
 
     auto wrapper = createWrapper(addr, std::move(wrapper_metadata));
     if (!wrapper) {
-        __android_log_print(ANDROID_LOG_WARN, "GeodeLauncher-Fix",
+        __android_log_print(ANDROID_LOG_WARN, "EryndLauncher-Fix",
             "failed to create wrapper: %s\n", wrapper.unwrapErr().c_str());
         return false;
     }

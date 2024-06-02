@@ -75,7 +75,7 @@ class GeometryDashActivity : AppCompatActivity(), Cocos2dxHelper.Cocos2dxHelperL
         try {
             tryLoadGame()
         } catch (e: UnsatisfiedLinkError) {
-            Log.e("GeodeLauncher", "Library linkage failure", e)
+            Log.e("EryndLauncher", "Library linkage failure", e)
 
             // generates helpful information for use in debugging library load failures
             val gdPackageInfo = packageManager.getPackageInfo(Constants.PACKAGE_NAME, 0)
@@ -92,7 +92,7 @@ class GeometryDashActivity : AppCompatActivity(), Cocos2dxHelper.Cocos2dxHelperL
 
             return
         } catch (e: Exception) {
-            Log.e("GeodeLauncher", "Uncaught error during game load", e)
+            Log.e("EryndLauncher", "Uncaught error during game load", e)
 
             returnToMain(
                 LaunchUtils.LauncherError.GENERIC,
@@ -142,15 +142,15 @@ class GeometryDashActivity : AppCompatActivity(), Cocos2dxHelper.Cocos2dxHelperL
         setupPostLibraryLoad(gdPackageInfo)
 
         try {
-            loadEryndLibrary()
+            loadGeodeLibrary()
         } catch (e: UnsatisfiedLinkError) {
-            handleEryndException(e)
+            handleGeodeException(e)
         } catch (e: Exception) {
-            handleEryndException(e)
+            handleGeodeException(e)
         }
     }
 
-    private fun handleEryndException(e: Throwable) {
+    private fun handleGeodeException(e: Throwable) {
         e.printStackTrace()
 
         // ignore load failures if the game is newer than what's supported
@@ -164,7 +164,7 @@ class GeometryDashActivity : AppCompatActivity(), Cocos2dxHelper.Cocos2dxHelperL
         try {
             GamePackageUtils.addAssetsFromPackage(assets, packageInfo)
         } catch (e: NoSuchMethodException) {
-            Log.e("GeodeLauncher", "Failed to add asset redirection", e)
+            Log.e("EryndLauncher", "Failed to add asset redirection", e)
         }
 
         try {
@@ -176,7 +176,7 @@ class GeometryDashActivity : AppCompatActivity(), Cocos2dxHelper.Cocos2dxHelperL
             LauncherFix.setOriginalDataPath(Constants.GJ_DATA_DIR)
             LauncherFix.setDataPath(saveDir.path)
         } catch (e: UnsatisfiedLinkError) {
-            Log.e("GeodeLauncher", "Failed to load LauncherFix", e)
+            Log.e("EryndLauncher", "Failed to load LauncherFix", e)
         }
     }
 
@@ -288,8 +288,8 @@ class GeometryDashActivity : AppCompatActivity(), Cocos2dxHelper.Cocos2dxHelperL
     }
 
     @SuppressLint("UnsafeDynamicallyLoadedCode")
-    private fun loadEryndLibrary() {
-        // Load Erynd if exists
+    private fun loadGeodeLibrary() {
+        // Load Geode if exists
         // bundling the object with the application allows for nicer backtraces
         try {
             // put libgeode.so in jniLibs/armeabi-v7a to get this
@@ -307,7 +307,7 @@ class GeometryDashActivity : AppCompatActivity(), Cocos2dxHelper.Cocos2dxHelperL
             // you know zmx i have 0 clue what this does so im
             // just gonna like copy the binary from external
             // also i get 20 million permission denied errors
-            val externalEryndPath = LaunchUtils.getInstalledEryndPath(this)!!
+            val externalGeodePath = LaunchUtils.getInstalledGeodePath(this)!!
 
             val copiedPath = File(filesDir.path, "copied")
             if (copiedPath.exists()) {
@@ -315,17 +315,17 @@ class GeometryDashActivity : AppCompatActivity(), Cocos2dxHelper.Cocos2dxHelperL
             }
             copiedPath.mkdir()
 
-            val copiedEryndPath = File(copiedPath.path, "Geode.so")
+            val copiedGeodePath = File(copiedPath.path, "Geode.so")
 
-            if (externalEryndPath.exists()) {
+            if (externalGeodePath.exists()) {
                 DownloadUtils.copyFile(
-                    FileInputStream(externalEryndPath),
-                    FileOutputStream(copiedEryndPath)
+                    FileInputStream(externalGeodePath),
+                    FileOutputStream(copiedGeodePath)
                 )
 
-                if (copiedEryndPath.exists()) {
-                    println("Loading Erynd from ${externalEryndPath.name}")
-                    System.load(copiedEryndPath.path)
+                if (copiedGeodePath.exists()) {
+                    println("Loading Geode from ${externalGeodePath.name}")
+                    System.load(copiedGeodePath.path)
                     return
                 }
             }
@@ -535,7 +535,7 @@ class GeometryDashActivity : AppCompatActivity(), Cocos2dxHelper.Cocos2dxHelperL
     }
 
     /**
-     * Copies a mod from the launcher's assets to the Erynd mods directory.
+     * Copies a mod from the launcher's assets to the Geode mods directory.
      * This method is not recommended for casual use, the new mod will not be automatically removed.
      */
     private fun loadInternalMods() {

@@ -58,7 +58,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.erynd.launcher.updater.ReleaseViewModel
-import com.erynd.launcher.ui.theme.GeodeLauncherTheme
+import com.erynd.launcher.ui.theme.EryndLauncherTheme
 import com.erynd.launcher.ui.theme.LocalTheme
 import com.erynd.launcher.ui.theme.Theme
 import com.erynd.launcher.ui.theme.Typography
@@ -109,7 +109,7 @@ class MainActivity : ComponentActivity() {
             val backgroundOption by PreferenceUtils.useBooleanPreference(PreferenceUtils.Key.BLACK_BACKGROUND)
 
             CompositionLocalProvider(LocalTheme provides theme) {
-                GeodeLauncherTheme(theme = theme, blackBackground = backgroundOption) {
+                EryndLauncherTheme(theme = theme, blackBackground = backgroundOption) {
                     Surface(
                         modifier = Modifier.fillMaxSize(),
                         color = MaterialTheme.colorScheme.background
@@ -1033,7 +1033,7 @@ fun MainScreen(
 @Preview(showSystemUi = true)
 @Composable
 fun MainScreenLightPreview() {
-    GeodeLauncherTheme {
+    EryndLauncherTheme {
         Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
             MainScreen()
         }
@@ -1044,7 +1044,7 @@ fun MainScreenLightPreview() {
 @Preview(showSystemUi = true)
 @Composable
 fun MainScreenDarkPreview() {
-    GeodeLauncherTheme(theme = Theme.DARK) {
+    EryndLauncherTheme(theme = Theme.DARK) {
         Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
             MainScreen()
         }
@@ -1054,7 +1054,7 @@ fun MainScreenDarkPreview() {
 @Preview
 @Composable
 fun MainScreenNoGeometryDashPreview() {
-    GeodeLauncherTheme {
+    EryndLauncherTheme {
         MainScreen(gdInstalled = false)
     }
 }

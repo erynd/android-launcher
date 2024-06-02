@@ -14,37 +14,37 @@ object LaunchUtils {
 
     val platformName: String = if (is64bit) "android64" else "android32"
 
-    val geodeFilename: String = "Erynd.$platformName.so"
+    val geodeFilename: String = "Geode.$platformName.so"
 
-    fun getInstalledEryndPath(context: Context): File? {
+    fun getInstalledGeodePath(context: Context): File? {
         val geodeName = geodeFilename
 
-        val internalEryndPath = File(context.filesDir, "launcher/$geodeName")
-        if (internalEryndPath.exists()) {
-            return internalEryndPath
+        val internalGeodePath = File(context.filesDir, "launcher/$geodeName")
+        if (internalGeodePath.exists()) {
+            return internalGeodePath
         }
 
-        val externalEryndDir = getBaseDirectory(context)
+        val externalGeodeDir = getBaseDirectory(context)
 
-        val updateEryndPath = File(externalEryndDir, "launcher/$geodeName")
-        if (updateEryndPath.exists()) {
-            return updateEryndPath
+        val updateGeodePath = File(externalGeodeDir, "launcher/$geodeName")
+        if (updateGeodePath.exists()) {
+            return updateGeodePath
         }
 
-        val externalEryndPath = File(externalEryndDir, geodeName)
-        if (externalEryndPath.exists()) {
-            return externalEryndPath
+        val externalGeodePath = File(externalGeodeDir, geodeName)
+        if (externalGeodePath.exists()) {
+            return externalGeodePath
         }
 
         return null
     }
 
     fun isEryndInstalled(context: Context): Boolean {
-        return getInstalledEryndPath(context) != null
+        return getInstalledGeodePath(context) != null
     }
 
     /**
-     * Returns the directory that Erynd/the game should base itself off of.
+     * Returns the directory that Geode/the game should base itself off of.
      */
     fun getBaseDirectory(context: Context): File {
         // deprecated, but seems to be the best choice of directory (i forced mat to test it)
